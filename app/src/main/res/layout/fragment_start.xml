@@ -5,7 +5,7 @@
     android:id="@+id/fragment_start_container_root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Views.StartFragment">
+    tools:context=".views.StartFragment">
 
     <TextView
         android:id="@+id/fragment_start_tv_screen_name"
@@ -27,7 +27,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragment_start_tv_screen_name">
+        app:layout_constraintTop_toBottomOf="@id/fragment_start_tv_screen_name">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/fragment_start_container_main"
