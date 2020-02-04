@@ -1,4 +1,4 @@
-package com.example.watchusersandposts.dagger.Modules
+package com.example.watchusersandposts.dagger.modules
 
 import androidx.lifecycle.ViewModel
 import com.example.watchusersandposts.factory.AssistedSavedStateViewModelFactory

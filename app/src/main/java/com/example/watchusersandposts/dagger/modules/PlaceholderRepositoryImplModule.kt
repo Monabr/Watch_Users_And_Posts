@@ -1,4 +1,4 @@
-package com.example.watchusersandposts.dagger.Modules
+package com.example.watchusersandposts.dagger.modules
 
 import com.example.watchusersandposts.network.PlaceholderRepository
 import com.example.watchusersandposts.network.PlaceholderRepositoryImpl

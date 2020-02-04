@@ -1,9 +1,9 @@
 package com.example.watchusersandposts.dagger
 
-import com.example.watchusersandposts.dagger.Modules.MapViewModelsModule
-import com.example.watchusersandposts.dagger.Modules.PlaceholderApiModule
-import com.example.watchusersandposts.dagger.Modules.PlaceholderRepositoryImplModule
-import com.example.watchusersandposts.dagger.Modules.ViewModelsModule
+import com.example.watchusersandposts.dagger.modules.MapViewModelsModule
+import com.example.watchusersandposts.dagger.modules.PlaceholderApiModule
+import com.example.watchusersandposts.dagger.modules.PlaceholderRepositoryImplModule
+import com.example.watchusersandposts.dagger.modules.ViewModelsModule
 import com.example.watchusersandposts.views.StartFragment
 import com.example.watchusersandposts.views.UserPostsFragment
 import dagger.Component

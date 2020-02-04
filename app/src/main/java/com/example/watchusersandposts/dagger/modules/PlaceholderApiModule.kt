@@ -1,4 +1,4 @@
-package com.example.watchusersandposts.dagger.Modules
+package com.example.watchusersandposts.dagger.modules
 
 import androidx.annotation.NonNull
 import com.example.watchusersandposts.network.PlaceholderApi
