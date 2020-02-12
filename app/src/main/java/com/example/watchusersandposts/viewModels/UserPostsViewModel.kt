@@ -25,7 +25,7 @@ class UserPostsViewModel @AssistedInject constructor(
     @AssistedInject.Factory
     interface Factory :
         AssistedSavedStateViewModelFactory<UserPostsViewModel> {
-        override fun create(handle: SavedStateHandle): UserPostsViewModel  // may be ommited prior kotlin 1.3.60 or after PR #121 in AssistedInject lib
+        override fun create(handle: SavedStateHandle): UserPostsViewModel
     }
 }
 
