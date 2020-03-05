@@ -1,19 +1,16 @@
 package com.example.watchusersandposts.adapters
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.watchusersandposts.models.Post
 import com.example.watchusersandposts.R
+import com.example.watchusersandposts.models.Post
 import kotlinx.android.synthetic.main.item_post.view.*
 
-class PostAdapter(
-    var context: Context,
-    var posts: List<Post>
-) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+class PostAdapter() : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
+    lateinit var posts: List<Post>
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView =
@@ -38,7 +35,7 @@ class PostAdapter(
                 itemView.item_post_comments_count.text = it.size.toString()
 
                 itemView.item_post_rv_comment_list.adapter = CommentAdapter(it)
-                itemView.item_post_rv_comment_list.layoutManager = LinearLayoutManager(context)
+                itemView.item_post_rv_comment_list.layoutManager = LinearLayoutManager(itemView.context)
                 itemView.item_post_iv_expand_arrow.visibility = View.VISIBLE
 
 

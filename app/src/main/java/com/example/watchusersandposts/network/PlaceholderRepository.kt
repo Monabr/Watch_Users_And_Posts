@@ -7,6 +7,6 @@ import com.example.watchusersandposts.models.User
 
 interface PlaceholderRepository {
     fun getUsers(): LiveData<List<User>>
-    fun getUserPosts(userId: Int): LiveData<List<Post>>
-    fun getPostComments(postId: Int): LiveData<List<Comment>>
+    suspend fun getUserPosts(userId: Int): List<Post>
+    suspend fun getPostComments(postId: Int): List<Comment>
 }

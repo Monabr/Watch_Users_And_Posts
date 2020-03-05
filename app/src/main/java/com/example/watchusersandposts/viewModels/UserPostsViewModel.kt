@@ -1,26 +1,43 @@
 package com.example.watchusersandposts.viewModels
 
-import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
+import com.example.watchusersandposts.adapters.PostAdapter
 import com.example.watchusersandposts.factory.AssistedSavedStateViewModelFactory
 import com.example.watchusersandposts.models.Post
 import com.example.watchusersandposts.network.PlaceholderRepository
 import com.example.watchusersandposts.views.UserPostsFragment.Companion.USER_ID
 import com.squareup.inject.assisted.Assisted
 import com.squareup.inject.assisted.AssistedInject
-import java.lang.IllegalArgumentException
+import kotlinx.coroutines.*
+import kotlin.coroutines.CoroutineContext
 
 class UserPostsViewModel @AssistedInject constructor(
     @Assisted private val handle: SavedStateHandle,
     val placeholderRepository: PlaceholderRepository
-) : ViewModel() {
+) : ViewModel(), CoroutineScope {
+    private val job = SupervisorJob()
+    override val coroutineContext: CoroutineContext
+        get() = Dispatchers.IO + job
+
     val userId: Int = handle[USER_ID] ?: throw IllegalArgumentException("Missing user id")
-    var posts: LiveData<List<Post>> = placeholderRepository.getUserPosts(userId)
+    var posts: MutableLiveData<List<Post>> = MutableLiveData()
+    lateinit var adapter: PostAdapter
 
-    fun getPostComments(postId: Int) = placeholderRepository.getPostComments(postId)
-
-
+    init {
+        launch {
+            var posts = placeholderRepository.getUserPosts(userId)
+            this@UserPostsViewModel.posts.postValue(posts)
+            for (index in posts.indices) {
+                posts[index].comments =
+                    placeholderRepository.getPostComments(posts[index].id)
+                withContext(Dispatchers.Main) {
+                    adapter.notifyItemChanged(index)
+                }
+            }
+        }
+    }
 
     @AssistedInject.Factory
     interface Factory :
