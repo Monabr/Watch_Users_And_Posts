@@ -6,5 +6,5 @@ class PlaceholderApiRemoteStore @Inject constructor(
     var placeholderApi: PlaceholderApi
 ) {
     suspend fun getUserPosts(userId: Int)  = placeholderApi.getUserPostsAsync(userId).await()
-    suspend fun getPersonMovies(postId: Int) = placeholderApi.getPostCommentsAsync(postId).await()
+    suspend fun getPostComments(postId: Int) = placeholderApi.getPostCommentsAsync(postId).await()
 }

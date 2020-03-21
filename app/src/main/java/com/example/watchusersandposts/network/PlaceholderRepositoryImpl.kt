@@ -36,5 +36,5 @@ class PlaceholderRepositoryImpl @Inject constructor(
 
     override suspend fun getUserPosts(userId: Int) = placeholderApiRemoteStore.getUserPosts(userId)
 
-    override suspend fun getPostComments(postId: Int) = placeholderApiRemoteStore.getPersonMovies(postId)
+    override suspend fun getPostComments(postId: Int) = placeholderApiRemoteStore.getPostComments(postId)
 }
