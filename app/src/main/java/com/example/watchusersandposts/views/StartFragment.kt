@@ -7,15 +7,18 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.observe
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.watchusersandposts.R
 import com.example.watchusersandposts.adapters.UserAdapter
 import com.example.watchusersandposts.dagger.DaggerStartComponent
-import com.example.watchusersandposts.R
 import com.example.watchusersandposts.viewModels.StartViewModel
 import kotlinx.android.synthetic.main.fragment_start.*
 
 
 class StartFragment : BaseFragment() {
 
+    /**
+     * Using to get list of users
+     */
     private val viewModel: StartViewModel by viewModels()
 
     companion object {

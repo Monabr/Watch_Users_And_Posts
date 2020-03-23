@@ -4,6 +4,9 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.watchusersandposts.R
 
+/**
+ * Main container for all application fragments since it's single activity application
+ */
 class MainContainerActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {

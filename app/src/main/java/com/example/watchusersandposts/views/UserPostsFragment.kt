@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.fragment_user_posts.*
 
 class UserPostsFragment : BaseFragment() {
 
+    /**
+     * Using to get posts and comments for them
+     */
     private val viewModel: UserPostsViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {

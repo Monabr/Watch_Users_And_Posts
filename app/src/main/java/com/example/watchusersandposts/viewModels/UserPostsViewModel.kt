@@ -22,12 +22,20 @@ class UserPostsViewModel @AssistedInject constructor(
         get() = Dispatchers.IO + job
 
     val userId: Int = handle[USER_ID] ?: throw IllegalArgumentException("Missing user id")
+
+    /**
+     * List of posts that will be observed by fragment
+     */
     var posts: MutableLiveData<List<Post>> = MutableLiveData()
+
+    /**
+     * link to make [adapter.notifyItemChanged(int)][androidx.recyclerview.widget.RecyclerView.Adapter.notifyItemChanged] when comments will come for a post
+     */
     lateinit var adapter: PostAdapter
 
     init {
         launch {
-            var posts = placeholderRepository.getUserPosts(userId)
+            val posts = placeholderRepository.getUserPosts(userId)
             this@UserPostsViewModel.posts.postValue(posts)
             for (index in posts.indices) {
                 posts[index].comments =
